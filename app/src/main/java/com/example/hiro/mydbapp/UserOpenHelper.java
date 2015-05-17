@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class UserOpenHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "myapp.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
     public static final String CREATE_TABLE =
             "create table " + UserContract.Users.TABLE_NAME + " (" +
                     UserContract.Users._ID + " integer primary key autoincrement, " +

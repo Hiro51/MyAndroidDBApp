@@ -1,5 +1,6 @@
 package com.example.hiro.mydbapp;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
@@ -27,15 +28,38 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = userOpenHelper.getWritableDatabase();
 
         // 処理 select, insert, update, delete
+//        ContentValues newUser = new ContentValues();
+//        newUser.put(UserContract.Users.COL_NAME, "tanaka");
+//        newUser.put(UserContract.Users.COL_SCORE, 44);
+//        long newId = db.insert(
+//                UserContract.Users.TABLE_NAME,
+//                null,
+//                newUser
+//        );
+//
+//        ContentValues newScore = new ContentValues();
+//        newScore.put(UserContract.Users.COL_SCORE, 100);
+//        int updatedCount = db.update(
+//                UserContract.Users.TABLE_NAME,
+//                newScore,
+//                UserContract.Users.COL_NAME + "=?",
+//                new String[]{ "wataru" }
+//        );
+//
+//        int deletedCount = db.delete(
+//                UserContract.Users.TABLE_NAME,
+//                UserContract.Users.COL_NAME + "=?",
+//                new String[]{ "tsunoyu" }
+//        );
+
         Cursor c = null;
         c = db.query(UserContract.Users.TABLE_NAME,
                 null,
-                UserContract.Users.COL_SCORE + "> ?",
-                new String[] { "50" },
                 null,
                 null,
-                UserContract.Users.COL_SCORE + " desc",
-                "1"
+                null,
+                null,
+                null
         );
 
         Log.v("DB_TEST", "Count: " + c.getCount());
